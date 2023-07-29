@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 24px;
+        overflow: hidden;
+    }
+    
+    small {
+        color: #cecece;
+        opacity: 0.7;
+        font-size: 15px;
+    }
+    
+    #wave, #wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    #wrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+    </style>
+    <body>
+        <div id="wrap">
+            <svg width="300px" height="300px" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS (http://vectornator.io/) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                <defs/>
+                <g id="레이어 1" vectornator:layerName="레이어 1">
+                <path d="M0 512C0 229.23 229.23 0 512 0C794.77 0 1024 229.23 1024 512C1024 794.77 794.77 1024 512 1024C229.23 1024 0 794.77 0 512Z" fill="#218fee" opacity="1"/>
+                <path d="M805.297 254.016L436.672 622.641L218.734 404.703L144.922 478.484L436.422 769.984L436.672 769.766L436.891 769.984L879.078 327.797L805.297 254.016Z" fill="#ffffff" opacity="1"/>
+                </g>
+            </svg>
+            <p>인증에 성공하였습니다.</p>
+            <small>이제 이 탭을 닫아도 됩니다.</small>
+        </div>
+        <canvas id="wave" width="100" height="100"></canvas>
+        <script type="module">
+            import Wave from "./Wave.js";
+
+            window.onload = () => {
+                let canvas = document.getElementById('wave');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                let ctx = canvas.getContext('2d');
+                let wave = new Wave(canvas, ctx);
+                wave.init('#218fee');
+            }
+        </script>
+    </body>
+</html>
